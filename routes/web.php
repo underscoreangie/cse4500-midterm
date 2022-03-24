@@ -21,8 +21,8 @@ Route::get('/', function () {
 
 URL::forceScheme('https');
 
-Route::get('/todos', function () {
-    return view('todos');
+Route::get('/equipments', function () {
+    return view('equipments');
 });
 
 Route::get('/calendar', function () {
@@ -57,7 +57,7 @@ Route::get('/db-migrate', function () {
     echo Artisan::output();
 });
 
-Route::resource('/todos', TodoController::class);
+Route::resource('/equipments', EquipmentController::class);
 
 Route::resource('/events', EventController::class);
  
