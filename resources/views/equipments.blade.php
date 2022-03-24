@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'To Do List')
+@section('title', 'Equipment')
 
 @section('content_header')
     <h1>Equipment</h1>
@@ -17,12 +17,12 @@
       </thead>
       <tbody>
 
-        @foreach($todos AS $todo)
+        @foreach($equipments AS $equipment)
         <tr>
-          <td>{{ $todo->id }}</td>
-          <td>{{ $todo->title }}</td>
-          <td><div class="progress progress-xs"><div class="progress-bar progress-bar-danger" style="width: {{ $todo->progress }}%"></div></div></td>
-          <td><a class="btn btn-default btn-sm" href="{{ route('todos.show',['todo'=>$todo->id]) }}">View</a></td>
+          <td>{{ $equipment->id }}</td>
+          <td>{{ $equipment->title }}</td>
+          <td><div class="progress progress-xs"><div class="progress-bar progress-bar-danger" style="width: {{ $equipment->progress }}%"></div></div></td>
+          <td><a class="btn btn-default btn-sm" href="{{ route('equipments.show',['equipment'=>$equipment->id]) }}">View</a></td>
         </tr>
         @endforeach
 
@@ -30,7 +30,7 @@
     </table>
   </div>
 </div>
-<a href="{{ route('todos.create') }} " class="btn btn-primary" >Create</a>
+<a href="{{ route('equipments.create') }} " class="btn btn-primary" >Create</a>
 @stop
 
 @section('js')
