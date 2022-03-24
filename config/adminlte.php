@@ -231,7 +231,7 @@ return [
         'text' => 'search',
     ],     
     [
-        'text' => 'To Do\'s',
+        'text' => 'Equipment',
         'url'  => 'todos',
         'icon' => 'fas fa-fw fa-file',
     ],
