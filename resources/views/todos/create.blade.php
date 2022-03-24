@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<form method="post" action="{{ route('todos.store') }}" >
+<form method="post" action="{{ route('equipments.store') }}" >
     @csrf
     <x-adminlte-input name="title" label="Hardware Specs" />
     <x-adminlte-input name="progress" type="number" min=0 max=1000 label="Invoice #" />
