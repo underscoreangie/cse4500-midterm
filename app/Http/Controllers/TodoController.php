@@ -3,34 +3,50 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Todo;
+use App\Models\Equipment;
 
-class TodoController extends Controller
+class EquipmentController extends Controller
 {
 
     public function index()
     {
-        $todos = Todo::all();
-        return view('todos',compact('todos'));
+        $equipments = Equipment::all();
+        return view('equipments',compact('equipments'));
     }
 
 
     public function create()
     {
-        return view('todos.create');
+        return view('equipments.create');
     }
 
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-                'title' => 'required',
-                'progress' => 'required',
+                'category' => 'required',
+                'hardwareSpecs' => 'required',
+                'userName' => 'required',
+                'userContact' => 'required',
+                'manuName' => 'required',
+                'saleContact' => 'required',
+                'techContact' => 'required',
+                'purchaseDate' => 'required',
+                'price' => 'required',
+                'invoice' => 'required',
          ]);
       
-         $todo = Todo::create([
-                'title' => $request->title,
-                'progress' => $request->progress, 
+         $equipment = Equipment::create([
+                'category' => $request->category,
+                'hardwareSpecs' => $request->hardwareSpecs,
+                'userName' => $request-> userName,
+                'userContact' => $request->userContact,
+                'manuName' => $request->manuName,
+                'saleContact' => $request->saleContact,
+                'techContact' => $request-> techContact,
+                'purchaseDate' => $request-> purchaseDate,
+                'price' => $request-> price,
+                'invoice' => $request-> invoice,
          ]);
       
           return $this->index();
@@ -39,8 +55,8 @@ class TodoController extends Controller
 
     public function show($id)
     {
-          $todo= Todo::find($id);
-          return view('todos.show',compact('todo'));
+          $equipment= Equipment::find($id);
+          return view('equipments.show',compact('equipment'));
     }
 
 
