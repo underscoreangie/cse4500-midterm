@@ -240,11 +240,6 @@ return [
         'url'  => 'calendar',
         'icon' => 'fas fa-fw fa-calendar-alt',
     ],
-    [         
-        'text' => 'Board',
-        'url'  => 'board',
-        'icon' => 'fas fa-fw fa-board-alt',
-    ],
 ],
 
     /*
