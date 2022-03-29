@@ -226,20 +226,35 @@ return [
 
     'menu' => [
         // Navbar items:
+       [
+            'type' => 'sidebar-menu-search',
+            'text' => 'search',
+        ],
         [
-        'type' => 'sidebar-menu-search',
-        'text' => 'search',
-    ],     
-    [
-        'text' => 'Equipment',
-        'url'  => 'equipments',
-        'icon' => 'fas fa-fw fa-file',
-    ],
-    [         
-        'text' => 'Calendar',
-        'url'  => 'calendar',
-        'icon' => 'fas fa-fw fa-calendar-alt',
-    ],
+            'text' => 'Manage Invoices',
+            'url'  => 'invoice',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+        [
+            'text' => 'Manage Customers',
+            'url'  => 'customer',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+        [         
+            'text' => 'Manage Equipment',
+            'url'  => 'equipment',
+            'icon' => 'fas fa-fw fa-calendar-alt',
+        ],
+        [
+            'text' => 'Manufacturers',
+            'url'  => 'manufacturer',
+            'icon' => 'fas fa-fw fa-file',
+        ],
+        [
+            'text' => 'Notes',
+            'url'  => 'note',
+            'icon' => 'fas fa-fw fa-file',
+        ],
 ],
 
     /*
