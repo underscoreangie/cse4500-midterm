@@ -8,10 +8,31 @@ use Illuminate\Database\Eloquent\Model;
 class Equipment extends Model
 {
     use HasFactory;
-    protected $fillable = ['hardwareSpecs', 'category','userName','userContact', 'manuName', 'saleContact','tectContact','purchaseDate','price','invoice' ,'progress'];
+    protected $fillable = [
+        'hardwareSpecs', 
+        'category',
+        'userName',
+        'userContact', 
+        'manuName', 
+        'saleContact',
+        'tectContact',
+        'purchaseDate',
+        'price',
+        'invoice' ,
+    ];
     
-    public function notes()
+     protected $table = 'equipments';
+    
+    public function maufacture()
     {
-        return $this->hasMany(Note::class);
+        return $this->belongsTo(Manufacture::class);
+    }
+    
+     public function invoice()
+    {
+        return $this->belongsToMany(Invoice::class, 'invoice_equipment');
     }
 }
+
+
+    
