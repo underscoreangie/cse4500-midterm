@@ -15,17 +15,13 @@ return new class extends Migration
     {
         Schema::create('equipment', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
-            $table->string('hardwareSpecs');
-            $table->integer('invoice');
-            $table->double('price');
-            $table->DateTime('purchaseDate');
-            $table->string('userName');
-            $table->string('userContact');
-            $table->string('manuName');
-            $table->string('saleContact');
-            $table->string('techContact');
             $table->timestamps();
+            $table->string("hardwareSpecs");
+            $table->string("invoice");
+            $table->string("price");
+            $table->DataTime('purchaseDate');
+            $table->foreignId('manufacturer_id')->constrained("manufacturers");
+
         });
     }
 
