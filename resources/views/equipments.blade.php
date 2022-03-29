@@ -30,7 +30,7 @@
     </table>
   </div>
 </div>
-<a href="{{ route('equipments.create') }} " class="btn btn-primary" >Create</a>
+<a href="{{ route('equipments.create') }} " class="btn btn-primary" >Add Equipment</a>
 @stop
 
 @section('js')
