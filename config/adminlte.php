@@ -232,12 +232,12 @@ return [
         ],
         [
             'text' => 'Equipment',
-            'url'  => 'invoice',
+            'url'  => 'equipments',
             'icon' => 'fas fa-fw fa-file',
         ],
         [
             'text' => 'Manufacturer',
-            'url'  => 'manufacturer',
+            'url'  => 'manufacturers',
             'icon' => 'fas fa-fw fa-file',
         ],
     ],
