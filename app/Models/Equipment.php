@@ -28,10 +28,6 @@ class Equipment extends Model
         return $this->belongsTo(Manufacture::class);
     }
     
-     public function invoice()
-    {
-        return $this->belongsToMany(Invoice::class, 'invoice_equipment');
-    }
 }
 
 
