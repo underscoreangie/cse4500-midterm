@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('category');
             $table->string('hardwareSpecs');
             $table->integer('invoice');
-            $table->double('price' 20, 2);
+            $table->double('price');
             $table->DateTime('purchaseDate');
             $table->string('userName');
             $table->string('userContact');
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipments');
+        Schema::dropIfExists('equipment');
     }
 };
