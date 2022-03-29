@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\EquipmentController;
-use App\Http\Controllers\EventController;
-
+use App\Http\Controllers\InvoiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,29 +22,6 @@ Route::get('/', function () {
 
 URL::forceScheme('https');
 
-Route::get('/equipments', function () {
-    return view('equipments');
-});
-
-Route::get('/calendar', function () {
-    return view('calendar');
-});
-
-Route::get('/events-feed', function () {
-    return '[
-    {
-      "title": "CSE4500 Class",
-      "start": "2022-02-23T17:30:00",
-      "end": "2022-02-23T18:45:00"
-    },
-    {
-      "title": "CSE4500 Class",
-      "start": "2022-02-28T17:30:00",
-      "end": "2022-02-28T18:45:00"
-    }  
-  ]';
-});
-
 Route::get('/db-test', function () {
     try {         
          echo \DB::connection()->getDatabaseName();     
@@ -57,9 +35,11 @@ Route::get('/db-migrate', function () {
     echo Artisan::output();
 });
 
-Route::resource('/equipments', EquipmentController::class);
+Route::resource('/customer', CustomerController::class);
+Route::resource('/manufacturer', ManufacturerController::class);
+Route::resource('/equipment', EquipmentController::class);
+Route::resource('/invoice', InvoiceController::class);
 
-Route::resource('/events', EventController::class);
  
 Route::fallback(function () {
      return view('error');
