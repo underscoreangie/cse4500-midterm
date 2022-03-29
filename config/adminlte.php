@@ -231,18 +231,8 @@ return [
             'text' => 'search',
         ],
         [
-            'text' => 'Invoices',
-            'url'  => 'invoice',
-            'icon' => 'fas fa-fw fa-file',
-        ],
-        [
-            'text' => 'Customers',
-            'url'  => 'customer',
-            'icon' => 'fas fa-fw fa-file',
-        ],
-        [         
             'text' => 'Equipment',
-            'url'  => 'equipment',
+            'url'  => 'invoice',
             'icon' => 'fas fa-fw fa-file',
         ],
         [
@@ -250,12 +240,7 @@ return [
             'url'  => 'manufacturer',
             'icon' => 'fas fa-fw fa-file',
         ],
-        [
-            'text' => 'Notes',
-            'url'  => 'note',
-            'icon' => 'fas fa-fw fa-file',
-        ],
-],
+    ],
 
     /*
     |--------------------------------------------------------------------------
