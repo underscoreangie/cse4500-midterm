@@ -28,10 +28,6 @@ Route::get('/db-test', function () {
     }
 });
 
-Route::get('/', function () {
-    return view('equipments');
-});
-
 
 Route::get('/db-migrate', function () {
     Artisan::call('migrate');
