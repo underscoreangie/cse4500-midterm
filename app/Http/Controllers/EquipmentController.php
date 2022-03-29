@@ -4,77 +4,93 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Equipment;
+use Kris\LaravelFormBuilder\FormBuilder;
+use App\Forms\EquipmentForm;
+
 
 class EquipmentController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $equipments = Equipment::all();
-        return view('equipments',compact('equipments'));
+        $equipment = Equipment::all();
+        return json_encode(compact('equipment'));
     }
 
-
-    public function create()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(FormBuilder $formBuilder)
     {
-        return view('equipments.create');
+        $form = $formBuilder->create(EquipmentForm::class, [
+            'method' => 'POST',
+            'url' => route('equipment.store')
+        ]);
+        return view('equipment.create', compact('form'));
     }
 
-
-    public function store(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(FormBuilder $formBuilder)
     {
-        $validated = $request->validate([
-                'category' => 'required',
-                'hardwareSpecs' => 'required',
-                'manuName' => 'required',
-                'saleContact' => 'required',
-                'techContact' => 'required',
-                'userName' => 'required',
-                'userContact' => 'required',
-                'invoice' => 'required',
-                 'price' => 'required',
-                'purchaseDate' => 'required',
-         ]);
-      
-         $equipment = Equipment::create([
-                'category' => $request->category,
-                'hardwareSpecs' => $request->hardwareSpecs,
-                'manuName' => $request->manuName,
-                'saleContact' => $request->saleContact,
-                'techContact' => $request-> techContact,
-                'userName' => $request-> userName,
-                'userContact' => $request->userContact,
-                'invoice' => $request-> invoice,
-                'price' => $request-> price,
-                'purchaseDate' => $request-> purchaseDate,
-                
-         ]);
-      
-          return $this->index();
+        $form = $formBuilder->create(EquipmentForm::class);
+        $form->redirectIfNotValid();
+        Equipment::create($form->getFieldValues());
+        return $this->index();
     }
 
-
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
-          $equipment= Equipment::find($id);
-          return view('equipments.show',compact('equipment'));
+        //
     }
 
-
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
         //
     }
 
-
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
     {
         //
     }
 
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
         //
     }
-} 
+}
