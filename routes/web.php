@@ -29,7 +29,7 @@ Route::get('/db-test', function () {
 });
 
 Route::get('/', function () {
-    return view('equipment');
+    return view('equipments');
 });
 
 
