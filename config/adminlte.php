@@ -231,22 +231,22 @@ return [
             'text' => 'search',
         ],
         [
-            'text' => 'Manage Invoices',
+            'text' => 'Invoices',
             'url'  => 'invoice',
             'icon' => 'fas fa-fw fa-file',
         ],
         [
-            'text' => 'Manage Customers',
+            'text' => 'Customers',
             'url'  => 'customer',
             'icon' => 'fas fa-fw fa-file',
         ],
         [         
-            'text' => 'Manage Equipment',
+            'text' => 'Equipment',
             'url'  => 'equipment',
             'icon' => 'fas fa-fw fa-calendar-alt',
         ],
         [
-            'text' => 'Manufacturers',
+            'text' => 'Manufacturer',
             'url'  => 'manufacturer',
             'icon' => 'fas fa-fw fa-file',
         ],
