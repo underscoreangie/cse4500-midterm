@@ -8,27 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class Equipment extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'hardwareSpecs', 
-        'category',
-        'userName',
-        'userContact', 
-        'manuName', 
-        'saleContact',
-        'tectContact',
-        'purchaseDate',
+        'name',
         'price',
-        'invoice' ,
+        'ghz',
+        'ram',
+        'category',
+        'manufacturer_id'
     ];
-    
-     protected $table = 'equipments';
-    
-    public function maufacture()
+
+    protected $table = 'equipments';
+
+    public function manufacturer()
     {
-        return $this->belongsTo(Manufacture::class);
+        return $this->belongsTo(Manufacturer::class);
     }
-    
+
+    public function invoices()
+    {
+        return $this->belongsToMany(Invoice::class, 'invoice_equipment');
+    }
 }
-
-
-    
