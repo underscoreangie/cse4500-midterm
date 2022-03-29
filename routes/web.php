@@ -35,10 +35,9 @@ Route::get('/db-migrate', function () {
     echo Artisan::output();
 });
 
-Route::resource('/customer', CustomerController::class);
 Route::resource('/manufacturer', ManufacturerController::class);
 Route::resource('/equipment', EquipmentController::class);
-Route::resource('/invoice', InvoiceController::class);
+
 
  
 Route::fallback(function () {
