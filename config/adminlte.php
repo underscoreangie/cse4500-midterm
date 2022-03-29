@@ -243,7 +243,7 @@ return [
         [         
             'text' => 'Equipment',
             'url'  => 'equipment',
-            'icon' => 'fas fa-fw fa-calendar-alt',
+            'icon' => 'fas fa-fw fa-file',
         ],
         [
             'text' => 'Manufacturer',
