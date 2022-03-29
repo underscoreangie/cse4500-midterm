@@ -26,27 +26,28 @@ class EquipmentController extends Controller
         $validated = $request->validate([
                 'category' => 'required',
                 'hardwareSpecs' => 'required',
-                'userName' => 'required',
-                'userContact' => 'required',
                 'manuName' => 'required',
                 'saleContact' => 'required',
                 'techContact' => 'required',
-                'purchaseDate' => 'required',
-                'price' => 'required',
+                'userName' => 'required',
+                'userContact' => 'required',
                 'invoice' => 'required',
+                 'price' => 'required',
+                'purchaseDate' => 'required',
          ]);
       
          $equipment = Equipment::create([
                 'category' => $request->category,
                 'hardwareSpecs' => $request->hardwareSpecs,
-                'userName' => $request-> userName,
-                'userContact' => $request->userContact,
                 'manuName' => $request->manuName,
                 'saleContact' => $request->saleContact,
                 'techContact' => $request-> techContact,
-                'purchaseDate' => $request-> purchaseDate,
-                'price' => $request-> price,
+                'userName' => $request-> userName,
+                'userContact' => $request->userContact,
                 'invoice' => $request-> invoice,
+                'price' => $request-> price,
+                'purchaseDate' => $request-> purchaseDate,
+                
          ]);
       
           return $this->index();
