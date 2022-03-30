@@ -17,7 +17,7 @@ class EquipmentController extends Controller
 
     public function create()
     {
-        return view('equipments.create');
+        return view('equipment.create');
     }
 
 
@@ -56,7 +56,7 @@ class EquipmentController extends Controller
     public function show($id)
     {
           $equipment= Equipment::find($id);
-          return view('equipments.show',compact('equipment'));
+          return view('equipment.show',compact('equipment'));
     }
 
 
