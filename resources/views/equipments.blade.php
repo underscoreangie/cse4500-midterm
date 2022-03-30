@@ -20,7 +20,15 @@
         @foreach($equipments AS $equipment)
         <tr>
           <td>{{ $equipment->id }}</td>
-          <td>{{ $equipment->title }}</td>
+          <td>{{ $equipment->category }}</td>
+          <td>{{ $equipment->hardwareSpecs }}</td>
+          <td>{{ $equipment->manufacture }}</td>
+          <td>{{ $equipment->saleInfo }}</td>
+          <td>{{ $equipment->contactInfo }}</td>
+          <td>{{ $equipment->userName }}</td>
+          <td>{{ $equipment->invoice }}</td>
+          <td>{{ $equipment->price }}</td>
+          <td>{{ $equipment->purchaseDate }}</td>
           <td><div class="progress progress-xs"><div class="progress-bar progress-bar-danger" style="width: {{ $equipment->progress }}%"></div></div></td>
           <td><a class="btn btn-default btn-sm" href="{{ route('equipments.show',['equipment'=>$equipment->id]) }}">View</a></td>
         </tr>
