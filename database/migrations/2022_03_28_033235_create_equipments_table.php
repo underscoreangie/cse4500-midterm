@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("ghz");
             $table->string("ram");
             $table->enum('category', ['desktop', 'laptop', 'tablet']);
-            $table->foreignId('manufacturer_id')->constrained("manufacturers");
+            $table->foreignId('manufacturer_id')->constrained("manufacturers"->onDelete('cascade');
 
         });
     }
