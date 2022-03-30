@@ -24,13 +24,29 @@ class EquipmentController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-                'title' => 'required',
-                'progress' => 'required',
+                'category' => 'required',
+                'hardwareSpecs' => 'required',
+                'manufacture' => 'required',
+                'saleInfo' => 'required',
+                'contactInfo' => 'required',
+                'userName' => 'required',
+                'contact' => 'required',
+                'invoice' => 'required',
+                'price' => 'required',
+                'date' => 'required',
          ]);
       
          $equipment = Equipment::create([
-                'title' => $request->title,
-                'progress' => $request->progress, 
+                'category' => $request-> category,
+                'hardwareSpecs' => $request-> hardwareSpecs,
+                'manufacture' => $request-> manufacture,
+                'saleInfo' => $request-> saleInfo,
+                'contactInfo' => $request-> contactInfo,
+                'userName' => $request-> userName,
+                'contact' => $request-> contact,
+                'invoice' => $request-> invoice,
+                'price' => $request-> price,
+                'date' => $request-> date,
          ]);
       
           return $this->index();
