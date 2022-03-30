@@ -235,11 +235,6 @@ return [
             'url'  => 'equipment',
             'icon' => 'fas fa-fw fa-file',
         ],
-        [
-            'text' => 'Manufacturer',
-            'url'  => 'manufacturers',
-            'icon' => 'fas fa-fw fa-file',
-        ],
     ],
 
     /*
