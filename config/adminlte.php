@@ -232,7 +232,7 @@ return [
         ],
         [
             'text' => 'Equipment',
-            'url'  => 'equipments',
+            'url'  => 'equipment',
             'icon' => 'fas fa-fw fa-file',
         ],
         [
