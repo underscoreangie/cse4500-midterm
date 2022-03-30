@@ -16,13 +16,15 @@ return new class extends Migration
         Schema::create('equipments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("name");
-            $table->string("price");
-            $table->string("ghz");
-            $table->string("ram");
             $table->enum('category', ['desktop', 'laptop', 'tablet']);
+            $table->string("hardwareSpecs");
             $table->foreignId('manufacturer_id')->constrained("manufacturers")->onDelete('cascade');
-
+            $table->string("saleInfo");
+            $table->string("contactInfo");
+            $table->string("userName");
+            $table->string("price");
+            $table->string("invoice");
+            $table->string("purchaseDate");
         });
     }
 
