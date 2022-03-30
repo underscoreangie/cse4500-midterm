@@ -23,4 +23,5 @@ class Equipment extends Model
     ];
 
     protected $table = 'equipments';
+}
 
