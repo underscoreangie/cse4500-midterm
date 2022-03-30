@@ -35,7 +35,7 @@ Route::get('/db-migrate', function () {
 });
 
 Route::resource('/manufacturer', ManufacturerController::class);
-Route::resource('/equipments', EquipmentController::class);
+Route::resource('/equipment', EquipmentController::class);
 
 
  
