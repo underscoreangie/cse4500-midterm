@@ -21,6 +21,8 @@ class Equipment extends Model
         "purchaseDate",
         "invoice",
     ];
+    
+    public $sortable = ['userName', 'category', 'manuName'];
 
     protected $table = 'equipments';
 }
