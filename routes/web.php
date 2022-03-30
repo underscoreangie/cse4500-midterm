@@ -35,7 +35,6 @@ Route::get('/db-migrate', function () {
 
 
 Route::get('/equipments', function () {
-     $equipments = Equipment::sortable()->paginate(3);
     return view('equipments');
 });
 
