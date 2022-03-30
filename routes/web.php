@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\EquipmentController;
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +33,11 @@ Route::get('/db-migrate', function () {
     echo Artisan::output();
 });
 
-Route::resource('/manufacturer', ManufacturerController::class);
+
+Route::get('/equipments', function () {
+    return view('equipments');
+});
+
 Route::resource('/equipments', EquipmentController::class);
 
 
