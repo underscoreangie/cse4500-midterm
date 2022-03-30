@@ -12,7 +12,7 @@
     <table id="table" class="table table-bordered">
       <thead>
         <tr>
-          <th style="width: 10px">@sortablelink('Category')</th><th>Hardware Specs</th><th>@sortablelink('Manufacture')</th><th>Manu Sale Info</th><th>Manu Contact Info</th><th>@sortablelink('User Name')</th><th>User Contact</th><th>Invoice</th><th>Price</th><th>Purchase Date</th><th style="width: 40px">View Info</th>
+          <th style="width: 10px">Category</th><th>Hardware Specs</th><th>Manufacture</th><th>Manu Sale Info</th><th>Manu Contact Info</th><th>User Name</th><th>User Contact</th><th>Invoice</th><th>Price</th><th>Purchase Date</th><th style="width: 40px">View Info</th>
         </tr>
       </thead>
       <tbody>
