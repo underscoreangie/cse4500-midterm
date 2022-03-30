@@ -10,23 +10,17 @@ class Equipment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'hardwareSpecs',
+        "category",
+        "userName",
+        "userContact",
+        "manuName",
+        "saleInfo",
+        "techInfo",
         'price',
-        'ghz',
-        'ram',
-        'category',
-        'manufacturer_id'
+        "purchaseDate",
+        "invoice",
     ];
 
     protected $table = 'equipments';
 
-    public function manufacturer()
-    {
-        return $this->belongsTo(Manufacturer::class);
-    }
-
-    public function invoices()
-    {
-        return $this->belongsToMany(Invoice::class, 'invoice_equipment');
-    }
-}
