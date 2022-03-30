@@ -11,13 +11,13 @@ class EquipmentController extends Controller
     public function index()
     {
         $equipments = Equipment::all();
-        return view('equipment',compact('equipment'));
+        return view('equipments',compact('equipments'));
     }
 
 
     public function create()
     {
-        return view('equipment.create');
+        return view('equipments.create');
     }
 
 
@@ -56,7 +56,7 @@ class EquipmentController extends Controller
     public function show($id)
     {
           $equipment= Equipment::find($id);
-          return view('equipment.show',compact('equipment'));
+          return view('equipments.show',compact('equipment'));
     }
 
 
