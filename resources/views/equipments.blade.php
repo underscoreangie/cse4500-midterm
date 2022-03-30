@@ -29,7 +29,6 @@
           <td>{{ $equipment->invoice }}</td>
           <td>{{ $equipment->price }}</td>
           <td>{{ $equipment->purchaseDate }}</td>
-          <td><div class="progress progress-xs"><div class="progress-bar progress-bar-danger" style="width: {{ $equipment->progress }}%"></div></div></td>
           <td><a class="btn btn-default btn-sm" href="{{ route('equipments.show',['equipment'=>$equipment->id]) }}">View</a></td>
         </tr>
         @endforeach
