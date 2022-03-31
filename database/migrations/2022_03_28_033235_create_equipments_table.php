@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('equipments', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->enum('category', ['desktop', 'laptop', 'tablet']);
             $table->string("hardwareSpecs");
             $table->string("manufacture");
@@ -25,6 +24,7 @@ return new class extends Migration
             $table->string("price");
             $table->string("invoice");
             $table->string("purchaseDate");
+            $table->timestamps();
         });
     }
 
