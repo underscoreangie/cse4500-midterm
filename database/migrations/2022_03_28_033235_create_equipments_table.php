@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->enum('category', ['desktop', 'laptop', 'tablet']);
             $table->string("hardwareSpecs");
-            $table->foreignId('manufacturer_id')->constrained("manufacturers")->onDelete('cascade');
+            $table->string("manufacture");
             $table->string("saleInfo");
             $table->string("contactInfo");
             $table->string("userName");
