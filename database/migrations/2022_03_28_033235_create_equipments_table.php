@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('equipments', function (Blueprint $table) {
             $table->id();
-            $table->enum('category', ['desktop', 'laptop', 'tablet']);
+            $table->id("category");
             $table->string("hardwareSpecs");
             $table->string("manufacture");
             $table->string("saleInfo");
