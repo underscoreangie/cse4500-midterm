@@ -2,78 +2,91 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Equipment;
+use App\Models\Manufacture;
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Note;
+
+use Illuminate\Http\Request;
+
 
 class EquipmentController extends Controller
 {
 
     public function index()
     {
-        $equipments = Equipment::all();
-        return view('equipments',compact('equipments'));
+        $equipments = Equipment::with('manufacture','users','category','notes')->get();
+        $response['data'] = $equipments;
+        return json_encode($response);
     }
-
 
     public function create()
     {
-        return view('equipments.create');
+        $manufactures = Manufacture::all();
+        $categories = Category::all();
+        $users = User::all();
+        return view('equipment.create',compact('manufactures','categories','users'));
     }
 
 
     public function store(Request $request)
     {
+      $validated = $request->validate([
+        'manufacture_id' => 'required',
+        'category_id' => 'required',
+        'model' => 'required',
+        'invoice_number' => 'required',
+        'price' => 'required',
+        'purchase_date' => 'required'
+      ]);
+
+      $equipment = Equipment::create($request->all());
+      if($request['user_id'] != "") {
+        $equipment->users()->attach($request['user_id']);
+      }
+
+      return redirect()->route('equipment.show',compact('equipment'));
+    }
+
+
+    public function show(Equipment $equipment)
+    {
+        return view('equipment.show',compact('equipment'));
+    }
+
+
+    public function edit(Equipment $equipment)
+    {
+        $manufactures = Manufacture::all();
+        $categories = Category::all();
+        $users = User::all();
+        return view('equipment.edit',compact('equipment','manufactures','categories','users'));
+    }
+
+
+    public function update(Request $request, Equipment $equipment)
+    {
         $validated = $request->validate([
-                'category' => 'required',
-                'hardwareSpecs' => 'required',
-                'manufacture' => 'required',
-                'saleInfo' => 'required',
-                'contactInfo' => 'required',
-                'userName' => 'required',
-                'contact' => 'required',
-                'invoice' => 'required',
-                'price' => 'required',
-                'date' => 'required',
-         ]);
-      
-         $equipment = Equipment::create([
-                'category' => $request-> category,
-                'hardwareSpecs' => $request-> hardwareSpecs,
-                'manufacture' => $request-> manufacture,
-                'saleInfo' => $request-> saleInfo,
-                'contactInfo' => $request-> contactInfo,
-                'userName' => $request-> userName,
-                'contact' => $request-> contact,
-                'invoice' => $request-> invoice,
-                'price' => $request-> price,
-                'date' => $request-> date,
-         ]);
-      
-          return $this->index();
+          'manufacture_id' => 'required',
+          'category_id' => 'required',
+          'model' => 'required',
+          'invoice_number' => 'required',
+          'price' => 'required',
+          'purchase_date' => 'required'
+        ]);
+
+        $equipment->fill($request->all())->save();
+        if($request['user_id'] != "" && $request['user_id'] != $equipment->users->first()->id) {
+          $equipment->users()->attach($request['user_id']);
+        }
+
+        return redirect()->route('equipment.show',compact('equipment'));
     }
 
-
-    public function show($id)
+    public function destroy(Equipment $equipment)
     {
-          $equipment= Equipment::find($id);
-          return view('equipments.show',compact('equipment'));
+        $equipment->delete();
+        return redirect()->back();
     }
-
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-
-    public function destroy($id)
-    {
-        //
-    }
-} 
+}
