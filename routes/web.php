@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EquipmentController;
+use App\Http\Controllers\ManufactureController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\NoteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,32 +22,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-URL::forceScheme('https');
+Route::resource('equipment', EquipmentController::class);
 
-Route::get('/db-test', function () {
-    try {         
-         echo \DB::connection()->getDatabaseName();     
-    } catch (\Exception $e) {
-          echo 'None';
-    }
-});
+Route::resource('manufactures', ManufactureController::class);
 
+Route::resource('categories', CategoryController::class);
 
-Route::get('/db-migrate', function () {
-    Artisan::call('migrate');
-    echo Artisan::output();
-});
+Route::resource('users', UserController::class);
 
-
-Route::get('/equipments', function () {
-    return view('equipments');
-});
-
-
-
-Route::resource('/equipments', EquipmentController::class);
-
-
+Route::resource('notes', NoteController::class)->except(['create','store']);
+Route::get('/notes/create/{equipment}', [NoteController::class,'create'])->name('notes.create');
+Route::post('/notes/create/{equipment}', [NoteController::class,'store'])->name('notes.store');
  
 Route::fallback(function () {
      return view('error');
